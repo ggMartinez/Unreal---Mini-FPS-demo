@@ -3,7 +3,9 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "../Weapons/Pistol.h"
 #include "GameFramework/Character.h"
+#include "Components/ChildActorComponent.h"
 #include "PlayerCharacter.generated.h"
 
 UCLASS()
@@ -23,6 +25,9 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UPROPERTY(VisibleAnywhere, Category = "Weapons")
+	TObjectPtr<UChildActorComponent> PistolComponent;
+
 protected:
 	UPROPERTY(EditAnywhere)
 	class UCameraComponent* Camera;
@@ -38,6 +43,11 @@ protected:
 
 	UFUNCTION(BlueprintCallable, Category = "Movement")
 	void LookUp(float value);
+
+	UFUNCTION(BlueprintCallable, Category = "Movement")
+	void CallWeaponShot(float value);
+
+	
 
 
 };

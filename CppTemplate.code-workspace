@@ -37,7 +37,7 @@
 					"CppTemplate",
 					"Win64",
 					"Debug",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -54,7 +54,7 @@
 					"CppTemplate",
 					"Win64",
 					"Debug",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -74,7 +74,7 @@
 					"CppTemplate",
 					"Win64",
 					"Debug",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -91,7 +91,7 @@
 					"CppTemplate",
 					"Win64",
 					"DebugGame",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -108,7 +108,7 @@
 					"CppTemplate",
 					"Win64",
 					"DebugGame",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -128,7 +128,7 @@
 					"CppTemplate",
 					"Win64",
 					"DebugGame",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -145,7 +145,7 @@
 					"CppTemplate",
 					"Win64",
 					"Development",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -162,7 +162,7 @@
 					"CppTemplate",
 					"Win64",
 					"Development",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -182,7 +182,7 @@
 					"CppTemplate",
 					"Win64",
 					"Development",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -199,7 +199,7 @@
 					"CppTemplate",
 					"Win64",
 					"Test",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -216,7 +216,7 @@
 					"CppTemplate",
 					"Win64",
 					"Test",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -236,7 +236,7 @@
 					"CppTemplate",
 					"Win64",
 					"Test",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -253,7 +253,7 @@
 					"CppTemplate",
 					"Win64",
 					"Shipping",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -270,7 +270,7 @@
 					"CppTemplate",
 					"Win64",
 					"Shipping",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -290,7 +290,7 @@
 					"CppTemplate",
 					"Win64",
 					"Shipping",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -307,7 +307,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"Debug",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -324,7 +324,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"Debug",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -344,7 +344,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"Debug",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -361,7 +361,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"DebugGame",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -378,7 +378,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"DebugGame",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -398,7 +398,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"DebugGame",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -415,7 +415,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"Development",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -432,7 +432,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"Development",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -452,7 +452,7 @@
 					"CppTemplateEditor",
 					"Win64",
 					"Development",
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-waitmutex"
 				],
 				"problemMatcher": "$msCompile",
@@ -469,7 +469,7 @@
 			{
 				"name": "Launch CppTemplate (Debug)",
 				"request": "launch",
-				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
+				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\Binaries\\Win64\\UnrealGame-Win64-Debug.exe",
 				"preLaunchTask": "CppTemplate Win64 Debug Build",
 				"args": [
 				],
@@ -488,7 +488,7 @@
 			{
 				"name": "Launch CppTemplate (DebugGame)",
 				"request": "launch",
-				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
+				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\Binaries\\Win64\\UnrealGame-Win64-DebugGame.exe",
 				"preLaunchTask": "CppTemplate Win64 DebugGame Build",
 				"args": [
 				],
@@ -507,7 +507,7 @@
 			{
 				"name": "Launch CppTemplate (Development)",
 				"request": "launch",
-				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\Binaries\\Win64\\UnrealGame.exe",
+				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\Binaries\\Win64\\UnrealGame.exe",
 				"preLaunchTask": "CppTemplate Win64 Development Build",
 				"args": [
 				],
@@ -526,7 +526,7 @@
 			{
 				"name": "Launch CppTemplate (Test)",
 				"request": "launch",
-				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
+				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\Binaries\\Win64\\UnrealGame-Win64-Test.exe",
 				"preLaunchTask": "CppTemplate Win64 Test Build",
 				"args": [
 				],
@@ -545,7 +545,7 @@
 			{
 				"name": "Launch CppTemplate (Shipping)",
 				"request": "launch",
-				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
+				"program": "C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\Binaries\\Win64\\UnrealGame-Win64-Shipping.exe",
 				"preLaunchTask": "CppTemplate Win64 Shipping Build",
 				"args": [
 				],
@@ -567,7 +567,7 @@
 				"program": "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-Debug.exe",
 				"preLaunchTask": "CppTemplateEditor Win64 Debug Build",
 				"args": [
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject"
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject"
 				],
 				"cwd": "C:\\Program Files\\Epic Games\\UE_5.8",
 				"stopAtEntry": false,
@@ -587,7 +587,7 @@
 				"program": "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor-Win64-DebugGame.exe",
 				"preLaunchTask": "CppTemplateEditor Win64 DebugGame Build",
 				"args": [
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject"
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject"
 				],
 				"cwd": "C:\\Program Files\\Epic Games\\UE_5.8",
 				"stopAtEntry": false,
@@ -607,7 +607,7 @@
 				"program": "C:\\Program Files\\Epic Games\\UE_5.8\\Engine\\Binaries\\Win64\\UnrealEditor.exe",
 				"preLaunchTask": "CppTemplateEditor Win64 Development Build",
 				"args": [
-					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject"
+					"C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject"
 				],
 				"cwd": "C:\\Program Files\\Epic Games\\UE_5.8",
 				"stopAtEntry": false,
@@ -630,7 +630,7 @@
 				"args": [
 					"-projectfiles",
 					"-vscode",
-					"-project=C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\CppTemplate\\CppTemplate.uproject",
+					"-project=C:\\Users\\Gonzalo Martinez\\Documents\\Unreal Projects\\projectito\\CppTemplate.uproject",
 					"-game",
 					"-engine",
 					"-dotnet"

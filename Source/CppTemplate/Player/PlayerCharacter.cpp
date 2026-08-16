@@ -11,14 +11,14 @@ APlayerCharacter::APlayerCharacter()
 
 	PrimaryActorTick.bCanEverTick = true;
 
-	
 }
 
 
 void APlayerCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-	
+
+	PistolComponent = FindComponentByClass<UChildActorComponent>();
 }
 
 
@@ -49,4 +49,12 @@ void APlayerCharacter::Turn(float Value)
 void APlayerCharacter::LookUp(float Value)
 {
 	AddControllerPitchInput(-Value);
+}
+
+void APlayerCharacter::CallWeaponShot(float Value)
+{
+	if (APistol* Pistol = Cast<APistol>(PistolComponent->GetChildActor()))
+	{
+		Pistol->Shot();
+	}
 }
