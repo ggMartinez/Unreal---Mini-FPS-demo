@@ -31,6 +31,8 @@ protected:
 	UPROPERTY(Transient)
 	TObjectPtr<USceneComponent> ShotPointComponent;
 
+	void FindShotPointComponent();
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

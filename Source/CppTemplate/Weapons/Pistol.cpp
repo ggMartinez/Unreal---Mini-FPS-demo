@@ -18,23 +18,14 @@ void APistol::BeginPlay()
 {
 	Super::BeginPlay();
 
-	TInlineComponentArray<USceneComponent*> SceneComponents;
-	GetComponents(SceneComponents);
-	for (USceneComponent* Component : SceneComponents)
-	{
-		if (Component->GetName().Contains(TEXT("ShotPoint")))
-		{
-			ShotPointComponent = Component;
-			break;
-		}
-	}
+	FindShotPointComponent();
 }
+
 
 // Called every frame
 void APistol::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-
 }
 
 void APistol::Shot(){
@@ -49,17 +40,25 @@ void APistol::Shot(){
 
 	if (MuzzleFlashEffect && ShotPointComponent)
 	{
-		UNiagaraFunctionLibrary::SpawnSystemAttached(
-			MuzzleFlashEffect,
-			ShotPointComponent,
-			NAME_None,
-			FVector::ZeroVector,
-			FRotator::ZeroRotator,
-			EAttachLocation::SnapToTarget,
-			true);
+		UNiagaraFunctionLibrary::SpawnSystemAttached(MuzzleFlashEffect, ShotPointComponent, NAME_None, FVector::ZeroVector, FRotator::ZeroRotator, EAttachLocation::SnapToTarget, true);
 	}
 
 	if (FiringSound)
 		UGameplayStatics::PlaySoundAtLocation(this, FiringSound, GetActorLocation());
 }
 
+
+
+void APistol::FindShotPointComponent()
+{
+	TInlineComponentArray<USceneComponent*> SceneComponents;
+	GetComponents(SceneComponents);
+	for (USceneComponent* Component : SceneComponents)
+	{
+		if (Component->GetName().Contains(TEXT("ShotPoint")))
+		{
+			ShotPointComponent = Component;
+			break;
+		}
+	}
+}
