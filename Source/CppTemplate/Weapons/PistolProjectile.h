@@ -27,8 +27,12 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, Category = "Bullet")
-	int damage;
+
+	UPROPERTY(EditAnywhere, Category = "Damage")
+	float Damage = 25.f;
+
+	UPROPERTY(EditAnywhere, Category = "Damage")
+	TSubclassOf<UDamageType> DamageTypeClass;
 
 
 

@@ -1,6 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 
+#include "Kismet/GameplayStatics.h" 
 #include "PistolProjectile.h"
 
 // Sets default values
@@ -39,6 +40,15 @@ void APistolProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Collided")));
 	if (GEngine)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Projectile hit: %s"), *HitName));
+
+
+	UGameplayStatics::ApplyDamage(
+		OtherActor,
+		Damage,
+		GetInstigatorController(),   // who gets the kill credit
+		this,                        // damage causer (the projectile)
+		DamageTypeClass
+	);
 
 	Destroy();
 }
