@@ -2,7 +2,6 @@
 
 
 #include "PistolProjectile.h"
-#include "Components/PrimitiveComponent.h"
 
 // Sets default values
 APistolProjectile::APistolProjectile()
@@ -25,16 +24,19 @@ void APistolProjectile::Tick(float DeltaTime)
 
 }
 
-void APistolProjectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
+void APistolProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 {
-	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
+	Super::NotifyActorBeginOverlap(OtherActor);
 
-	// Ignore hits against the player - hardcoded since the tag-based IgnoreActorWhenMoving approach wasn't working.
-	if (Other && Other->ActorHasTag(TEXT("Player")))
+	// Ignore the player - hardcoded tag check.
+	if (OtherActor && OtherActor->ActorHasTag(TEXT("Player"))){
+		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Collided with player")));
 		return;
 
-	const FString HitName = OtherComp ? OtherComp->GetName() : (Other ? Other->GetName() : TEXT("Unknown"));
+	}
 
+	const FString HitName = OtherActor ? OtherActor->GetName() : TEXT("Unknown");
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Collided")));
 	if (GEngine)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Projectile hit: %s"), *HitName));
 
