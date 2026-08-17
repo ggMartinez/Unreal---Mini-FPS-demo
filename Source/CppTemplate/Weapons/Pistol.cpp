@@ -4,6 +4,7 @@
 #include "Pistol.h"
 #include "NiagaraFunctionLibrary.h"
 #include "Kismet/GameplayStatics.h"
+#include "PistolProjectile.h"
 
 // Sets default values
 APistol::APistol()
@@ -45,9 +46,23 @@ void APistol::Shot(){
 
 	if (FiringSound)
 		UGameplayStatics::PlaySoundAtLocation(this, FiringSound, GetActorLocation());
+
+	if (pistolProjectile && ShotPointComponent)
+		SpawnProjectile();
 }
 
 
+
+void APistol::SpawnProjectile()
+{
+	FActorSpawnParameters SpawnParams;
+	SpawnParams.Owner = this;						// Attribute the projectile to this pistol (damage causer, self-collision ignoring, etc).
+	SpawnParams.Instigator = GetInstigator();		// Propagate the pawn that's firing (e.g. for kill-credit/damage logic).
+	SpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;	// If the muzzle point is overlapping something, nudge the spawn out instead of failing to spawn.
+
+	// Spawn pistolProjectile (e.g. BP_PistolProjectile) at the muzzle's world location/rotation.
+	GetWorld()->SpawnActor<APistolProjectile>(pistolProjectile, ShotPointComponent->GetComponentLocation(), ShotPointComponent->GetComponentRotation(), SpawnParams);
+}
 
 void APistol::FindShotPointComponent()
 {

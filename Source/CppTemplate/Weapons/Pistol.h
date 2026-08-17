@@ -9,6 +9,7 @@
 class UNiagaraSystem;
 class USoundBase;
 class USceneComponent;
+class APistolProjectile;
 
 UCLASS()
 class CPPTEMPLATE_API APistol : public AActor
@@ -32,6 +33,7 @@ protected:
 	TObjectPtr<USceneComponent> ShotPointComponent;
 
 	void FindShotPointComponent();
+	void SpawnProjectile();
 
 public:
 	// Called every frame
@@ -43,6 +45,10 @@ public:
 	// Rounds per minute
 	UPROPERTY(EditAnywhere, Category = "Weapon", meta = (ClampMin = "1.0", UIMin = "1.0"))
 	float FireRate = 600.f;
+
+	// Projectile spawned when firing. Set to BP_PistolProjectile in the editor.
+	UPROPERTY(EditAnywhere, Category = "Weapon")
+	TSubclassOf<APistolProjectile> pistolProjectile;
 
 private:
 	float LastFireTime = -FLT_MAX;
