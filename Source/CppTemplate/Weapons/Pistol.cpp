@@ -55,15 +55,12 @@ void APistol::Shot(){
 	if(GEngine)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Pew pew!"));
 
-	if (RootComponent)
-	{
-		RootComponent->SetRelativeLocation(RestRelativeLocation - FVector(RecoilDistance, 0.f, 0.f));
-		RootComponent->SetRelativeRotation(RestRelativeRotation + FRotator(0.f, 0.f, -RecoilRotationAngle)); // Roll, around local X
-	}
 
 	if (MuzzleFlashEffect && ShotPointComponent)
 	{
-		UNiagaraFunctionLibrary::SpawnSystemAttached(MuzzleFlashEffect, ShotPointComponent, NAME_None, FVector::ZeroVector, FRotator::ZeroRotator, EAttachLocation::SnapToTarget, true);
+		// Spawn at the muzzle's current world transform rather than attaching, so the recoil
+		// doesn't drag the still-playing flash along with the pistol.
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, MuzzleFlashEffect, ShotPointComponent->GetComponentLocation(), ShotPointComponent->GetComponentRotation());
 	}
 
 	if (FiringSound)
@@ -71,6 +68,14 @@ void APistol::Shot(){
 
 	if (pistolProjectile && ShotPointComponent)
 		SpawnProjectile();
+		
+	if (RootComponent)
+	{
+		RootComponent->SetRelativeLocation(RestRelativeLocation - FVector(RecoilDistance, 0.f, 0.f));
+		RootComponent->SetRelativeRotation(RestRelativeRotation + FRotator(RecoilRotationAngle, 0.f, 0.f)); // Pitch, around local Y
+	}
+
+	
 }
 
 
