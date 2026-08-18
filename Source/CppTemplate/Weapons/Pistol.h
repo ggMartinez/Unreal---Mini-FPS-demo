@@ -35,6 +35,9 @@ protected:
 	void FindShotPointComponent();
 	void SpawnProjectile();
 
+	void Recoil();
+	void EaseRecoil(float DeltaTime);
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

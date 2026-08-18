@@ -31,14 +31,7 @@ void APistol::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 
-	// Ease the recoil kick (position and rotation) back to rest.
-
-	if (!RootComponent->GetRelativeLocation().Equals(RestRelativeLocation, 0.01f))
-		RootComponent->SetRelativeLocation(FMath::VInterpTo(RootComponent->GetRelativeLocation(), RestRelativeLocation, DeltaTime, RecoilRecoverySpeed));
-
-	if (!RootComponent->GetRelativeRotation().Equals(RestRelativeRotation, 0.01f))
-		RootComponent->SetRelativeRotation(FMath::RInterpTo(RootComponent->GetRelativeRotation(), RestRelativeRotation, DeltaTime, RecoilRecoverySpeed));
-
+	EaseRecoil(DeltaTime);
 }
 
 void APistol::Shot(){
@@ -48,29 +41,16 @@ void APistol::Shot(){
 		return;
 	LastFireTime = CurrentTime;
 
-	if(GEngine)
+	if(GEngine) 
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Pew pew!"));
-
-
-	if (MuzzleFlashEffect && ShotPointComponent)
-	{
-		// Spawn at the muzzle's current world transform rather than attaching, so the recoil
-		// doesn't drag the still-playing flash along with the pistol.
+	if (MuzzleFlashEffect && ShotPointComponent) 
 		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, MuzzleFlashEffect, ShotPointComponent->GetComponentLocation(), ShotPointComponent->GetComponentRotation());
-	}
-
-	if (FiringSound)
+	if (FiringSound) 
 		UGameplayStatics::PlaySoundAtLocation(this, FiringSound, GetActorLocation());
-
 	if (pistolProjectile && ShotPointComponent)
 		SpawnProjectile();
-		
 
-	RootComponent->SetRelativeLocation(RestRelativeLocation - FVector(RecoilDistance, 0.f, 0.f));
-	RootComponent->SetRelativeRotation(RestRelativeRotation + FRotator(RecoilRotationAngle, 0.f, 0.f)); // Pitch, around local Y
-
-
-	
+	Recoil();
 }
 
 
@@ -98,4 +78,20 @@ void APistol::FindShotPointComponent()
 			break;
 		}
 	}
+}
+
+
+void APistol::Recoil()
+{
+	RootComponent->SetRelativeLocation(RestRelativeLocation - FVector(RecoilDistance, 0.f, 0.f));
+	RootComponent->SetRelativeRotation(RestRelativeRotation + FRotator(RecoilRotationAngle, 0.f, 0.f)); // Pitch, around local Y
+}
+
+void APistol::EaseRecoil(float DeltaTime)
+{
+	if (!RootComponent->GetRelativeLocation().Equals(RestRelativeLocation, 0.01f))
+		RootComponent->SetRelativeLocation(FMath::VInterpTo(RootComponent->GetRelativeLocation(), RestRelativeLocation, DeltaTime, RecoilRecoverySpeed));
+
+	if (!RootComponent->GetRelativeRotation().Equals(RestRelativeRotation, 0.01f))
+		RootComponent->SetRelativeRotation(FMath::RInterpTo(RootComponent->GetRelativeRotation(), RestRelativeRotation, DeltaTime, RecoilRecoverySpeed));
 }
