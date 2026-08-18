@@ -6,6 +6,7 @@
 #include "Components/SphereComponent.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "NiagaraComponent.h"
+#include "NiagaraFunctionLibrary.h"
 #include "Components/ArrowComponent.h"
 
 // Sets default values
@@ -14,10 +15,13 @@ APistolProjectile::APistolProjectile()
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	Sphere = CreateDefaultSubobject<USphereComponent>(TEXT("Sphere"));
-	Sphere->InitSphereRadius(5.f);
-	Sphere->SetCollisionProfileName(TEXT("OverlapAllDynamic"));
-	SetRootComponent(Sphere);
+	SphereCollider = CreateDefaultSubobject<USphereComponent>(TEXT("SphereCollider"));
+	SphereCollider->InitSphereRadius(5.f);
+	SphereCollider->SetCollisionProfileName(TEXT("OverlapAllDynamic"));
+	SetRootComponent(SphereCollider);
+
+	Arrow = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow"));
+	Arrow->SetupAttachment(SphereCollider);
 
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileMovement"));
 	ProjectileMovement->InitialSpeed = 3500.f;
@@ -26,10 +30,8 @@ APistolProjectile::APistolProjectile()
 	ProjectileMovement->ProjectileGravityScale = 0.f;
 
 	Niagara = CreateDefaultSubobject<UNiagaraComponent>(TEXT("Niagara"));
-	Niagara->SetupAttachment(Sphere);
+	Niagara->SetupAttachment(SphereCollider);
 
-	Arrow = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow"));
-	Arrow->SetupAttachment(Sphere);
 }
 
 // Called when the game starts or when spawned
@@ -69,6 +71,9 @@ void APistolProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 		this,                        // damage causer (the projectile)
 		DamageTypeClass
 	);
+
+	if (HitEffect)
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, HitEffect, GetActorLocation(), GetActorRotation());
 
 	Destroy();
 }

@@ -10,6 +10,7 @@ class USphereComponent;
 class UProjectileMovementComponent;
 class UNiagaraComponent;
 class UArrowComponent;
+class UNiagaraSystem;
 
 UCLASS()
 class CPPTEMPLATE_API APistolProjectile : public AActor
@@ -22,7 +23,7 @@ public:
 
 	// Root collision. Overlap-only - see NotifyActorBeginOverlap.
 	UPROPERTY(VisibleAnywhere, Category = "Collision")
-	TObjectPtr<USphereComponent> Sphere;
+	TObjectPtr<USphereComponent> SphereCollider;
 
 	// Drives the projectile forward. Requires the root component's Mobility to be Movable.
 	UPROPERTY(VisibleAnywhere, Category = "Movement")
@@ -54,6 +55,10 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Damage")
 	TSubclassOf<UDamageType> DamageTypeClass;
+
+	// Spawned at the hit location when the projectile hits something. Assign the Niagara System in the editor.
+	UPROPERTY(EditAnywhere, Category = "VFX")
+	TObjectPtr<UNiagaraSystem> HitEffect;
 
 
 
