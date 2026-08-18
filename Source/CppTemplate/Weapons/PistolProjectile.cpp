@@ -74,6 +74,13 @@ void APistolProjectile::HandleImpact(AActor* OtherActor, const FVector& HitLocat
 	if (HitEffect)
 		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, HitEffect, HitLocation, HitNormal.Rotation());
 
-	Destroy();
+	// Stop moving/colliding immediately, but let the trail's existing particles fade out naturally
+	// instead of cutting it off - Destroy() would kill the trail component instantly.
+	SetActorEnableCollision(false);
+	ProjectileMovement->StopMovementImmediately();
+	if (Niagara)
+		Niagara->Deactivate();
+
+	SetLifeSpan(1.5f);
 }
 
