@@ -51,10 +51,10 @@ void APistolProjectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UP
 {
 	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
-	HandleImpact(Other, HitLocation);
+	HandleImpact(Other, HitLocation, HitNormal);
 }
 
-void APistolProjectile::HandleImpact(AActor* OtherActor, const FVector& HitLocation)
+void APistolProjectile::HandleImpact(AActor* OtherActor, const FVector& HitLocation, const FVector& HitNormal)
 {
 	const FString HitName = OtherActor ? OtherActor->GetName() : TEXT("Unknown");
 
@@ -69,8 +69,10 @@ void APistolProjectile::HandleImpact(AActor* OtherActor, const FVector& HitLocat
 		DamageTypeClass
 	);
 
+	// Orient the effect to the hit surface (e.g. its Z axis points away from the surface) rather than
+	// the projectile's travel direction, so it doesn't end up embedded in angled geometry.
 	if (HitEffect)
-		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, HitEffect, HitLocation, GetActorRotation());
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, HitEffect, HitLocation, HitNormal.Rotation());
 
 	Destroy();
 }

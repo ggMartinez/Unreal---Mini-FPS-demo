@@ -45,8 +45,8 @@ protected:
 	// Called automatically by the engine on a blocking collision (no binding needed).
 	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
 
-	// Applies damage, spawns the hit effect, and destroys the projectile.
-	void HandleImpact(AActor* OtherActor, const FVector& HitLocation);
+	// Applies damage, spawns the hit effect (oriented to the hit surface's normal), and destroys the projectile.
+	void HandleImpact(AActor* OtherActor, const FVector& HitLocation, const FVector& HitNormal);
 
 public:
 	// Called every frame
