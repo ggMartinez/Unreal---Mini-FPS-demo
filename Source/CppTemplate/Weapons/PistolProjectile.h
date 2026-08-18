@@ -6,6 +6,11 @@
 #include "GameFramework/Actor.h"
 #include "PistolProjectile.generated.h"
 
+class USphereComponent;
+class UProjectileMovementComponent;
+class UNiagaraComponent;
+class UArrowComponent;
+
 UCLASS()
 class CPPTEMPLATE_API APistolProjectile : public AActor
 {
@@ -14,6 +19,22 @@ class CPPTEMPLATE_API APistolProjectile : public AActor
 public:
 	// Sets default values for this actor's properties
 	APistolProjectile();
+
+	// Root collision. Overlap-only - see NotifyActorBeginOverlap.
+	UPROPERTY(VisibleAnywhere, Category = "Collision")
+	TObjectPtr<USphereComponent> Sphere;
+
+	// Drives the projectile forward. Requires the root component's Mobility to be Movable.
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	TObjectPtr<UProjectileMovementComponent> ProjectileMovement;
+
+	// Trail effect. Assign the Niagara System in the editor.
+	UPROPERTY(VisibleAnywhere, Category = "VFX")
+	TObjectPtr<UNiagaraComponent> Niagara;
+
+	// Editor-only visualization of the projectile's forward direction.
+	UPROPERTY(VisibleAnywhere, Category = "Movement")
+	TObjectPtr<UArrowComponent> Arrow;
 
 protected:
 	// Called when the game starts or when spawned
