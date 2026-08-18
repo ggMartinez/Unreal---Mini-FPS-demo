@@ -35,6 +35,7 @@ protected:
 	void FindShotPointComponent();
 	void SpawnProjectile();
 
+	void RateOfFireWait();
 	void Recoil();
 	void EaseRecoil(float DeltaTime);
 

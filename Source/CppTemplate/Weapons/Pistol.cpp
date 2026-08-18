@@ -35,14 +35,8 @@ void APistol::Tick(float DeltaTime)
 }
 
 void APistol::Shot(){
-	const float CurrentTime = GetWorld()->GetTimeSeconds();
-	const float TimeBetweenShots = 60.f / FMath::Max(FireRate, 1.f);
-	if (CurrentTime - LastFireTime < TimeBetweenShots)
-		return;
-	LastFireTime = CurrentTime;
+	RateOfFireWait();
 
-	if(GEngine) 
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Pew pew!"));
 	if (MuzzleFlashEffect && ShotPointComponent) 
 		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, MuzzleFlashEffect, ShotPointComponent->GetComponentLocation(), ShotPointComponent->GetComponentRotation());
 	if (FiringSound) 
@@ -53,6 +47,13 @@ void APistol::Shot(){
 	Recoil();
 }
 
+void APistol::RateOfFireWait(){
+	const float CurrentTime = GetWorld()->GetTimeSeconds();
+	const float TimeBetweenShots = 60.f / FMath::Max(FireRate, 1.f);
+	if (CurrentTime - LastFireTime < TimeBetweenShots)
+		return;
+	LastFireTime = CurrentTime;
+}
 
 
 void APistol::SpawnProjectile()
