@@ -20,6 +20,12 @@ void APistol::BeginPlay()
 	Super::BeginPlay();
 
 	FindShotPointComponent();
+
+	if (RootComponent)
+	{
+		RestRelativeLocation = RootComponent->GetRelativeLocation();
+		RestRelativeRotation = RootComponent->GetRelativeRotation();
+	}
 }
 
 
@@ -27,6 +33,16 @@ void APistol::BeginPlay()
 void APistol::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	// Ease the recoil kick (position and rotation) back to rest.
+	if (RootComponent)
+	{
+		if (!RootComponent->GetRelativeLocation().Equals(RestRelativeLocation, 0.01f))
+			RootComponent->SetRelativeLocation(FMath::VInterpTo(RootComponent->GetRelativeLocation(), RestRelativeLocation, DeltaTime, RecoilRecoverySpeed));
+
+		if (!RootComponent->GetRelativeRotation().Equals(RestRelativeRotation, 0.01f))
+			RootComponent->SetRelativeRotation(FMath::RInterpTo(RootComponent->GetRelativeRotation(), RestRelativeRotation, DeltaTime, RecoilRecoverySpeed));
+	}
 }
 
 void APistol::Shot(){
@@ -38,6 +54,12 @@ void APistol::Shot(){
 
 	if(GEngine)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Yellow, TEXT("Pew pew!"));
+
+	if (RootComponent)
+	{
+		RootComponent->SetRelativeLocation(RestRelativeLocation - FVector(RecoilDistance, 0.f, 0.f));
+		RootComponent->SetRelativeRotation(RestRelativeRotation + FRotator(0.f, 0.f, -RecoilRotationAngle)); // Roll, around local X
+	}
 
 	if (MuzzleFlashEffect && ShotPointComponent)
 	{

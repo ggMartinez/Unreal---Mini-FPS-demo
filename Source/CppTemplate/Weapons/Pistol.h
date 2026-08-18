@@ -50,8 +50,24 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Weapon")
 	TSubclassOf<APistolProjectile> pistolProjectile;
 
+	// How far the pistol kicks back (along its own local -X) when fired.
+	UPROPERTY(EditAnywhere, Category = "Weapon|Recoil", meta = (ClampMin = "0.0"))
+	float RecoilDistance = 3.f;
+
+	// How quickly the pistol returns to its resting position after recoiling.
+	UPROPERTY(EditAnywhere, Category = "Weapon|Recoil", meta = (ClampMin = "0.1"))
+	float RecoilRecoverySpeed = 12.f;
+
+	// How far the pistol rotates back (Roll, around its own local X axis) when fired.
+	UPROPERTY(EditAnywhere, Category = "Weapon|Recoil", meta = (ClampMin = "0.0"))
+	float RecoilRotationAngle = 45.f;
+
 private:
 	float LastFireTime = -FLT_MAX;
+
+	// The root component's relative location/rotation before any recoil is applied - recoil offsets from here and eases back to it.
+	FVector RestRelativeLocation = FVector::ZeroVector;
+	FRotator RestRelativeRotation = FRotator::ZeroRotator;
 
 };
 
