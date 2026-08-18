@@ -17,7 +17,7 @@ APistolProjectile::APistolProjectile()
 
 	SphereCollider = CreateDefaultSubobject<USphereComponent>(TEXT("SphereCollider"));
 	SphereCollider->InitSphereRadius(5.f);
-	SphereCollider->SetCollisionProfileName(TEXT("OverlapAllDynamic"));
+	SphereCollider->SetCollisionProfileName(TEXT("BlockAllDynamic"));
 	SetRootComponent(SphereCollider);
 
 	Arrow = CreateDefaultSubobject<UArrowComponent>(TEXT("Arrow"));
@@ -47,22 +47,19 @@ void APistolProjectile::Tick(float DeltaTime)
 
 }
 
-void APistolProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
+void APistolProjectile::NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit)
 {
-	Super::NotifyActorBeginOverlap(OtherActor);
+	Super::NotifyHit(MyComp, Other, OtherComp, bSelfMoved, HitLocation, HitNormal, NormalImpulse, Hit);
 
-	// Ignore the player - hardcoded tag check.
-	if (OtherActor && OtherActor->ActorHasTag(TEXT("Player"))){
-		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Collided with player")));
-		return;
+	HandleImpact(Other, HitLocation);
+}
 
-	}
-
+void APistolProjectile::HandleImpact(AActor* OtherActor, const FVector& HitLocation)
+{
 	const FString HitName = OtherActor ? OtherActor->GetName() : TEXT("Unknown");
-	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Collided")));
+
 	if (GEngine)
 		GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Red, FString::Printf(TEXT("Projectile hit: %s"), *HitName));
-
 
 	UGameplayStatics::ApplyDamage(
 		OtherActor,
@@ -73,7 +70,7 @@ void APistolProjectile::NotifyActorBeginOverlap(AActor* OtherActor)
 	);
 
 	if (HitEffect)
-		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, HitEffect, GetActorLocation(), GetActorRotation());
+		UNiagaraFunctionLibrary::SpawnSystemAtLocation(this, HitEffect, HitLocation, GetActorRotation());
 
 	Destroy();
 }

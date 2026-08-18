@@ -21,7 +21,8 @@ public:
 	// Sets default values for this actor's properties
 	APistolProjectile();
 
-	// Root collision. Overlap-only - see NotifyActorBeginOverlap.
+	// Root collision. Blocks everything - see NotifyHit. Ignoring the player is handled via
+	// Collision Channels/Presets, not here.
 	UPROPERTY(VisibleAnywhere, Category = "Collision")
 	TObjectPtr<USphereComponent> SphereCollider;
 
@@ -41,9 +42,11 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	// Called automatically by the engine when this actor starts overlapping another actor (no binding needed).
-	// The projectile's collision (Sphere) is overlap-only rather than blocking, so this is used instead of NotifyHit.
-	virtual void NotifyActorBeginOverlap(AActor* OtherActor) override;
+	// Called automatically by the engine on a blocking collision (no binding needed).
+	virtual void NotifyHit(UPrimitiveComponent* MyComp, AActor* Other, UPrimitiveComponent* OtherComp, bool bSelfMoved, FVector HitLocation, FVector HitNormal, FVector NormalImpulse, const FHitResult& Hit) override;
+
+	// Applies damage, spawns the hit effect, and destroys the projectile.
+	void HandleImpact(AActor* OtherActor, const FVector& HitLocation);
 
 public:
 	// Called every frame
